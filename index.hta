@@ -1,9 +1,24 @@
 <html>
-<body bgcolor="black">
-<object id="wmp" classid="clsid:6BF52A52-394A-11D3-B153-00C04F79FAA6">
-    <param name="url" value="1.1.1.2.mp4">
-    <param name="autostart" value="1">
-    <param name="showcontrols" value="1">
+<head>
+<hta:application 
+    border="none"
+    caption="no"
+    showintaskbar="no"
+    windowstate="maximize"
+>
+<script language="VBScript">
+Sub wmp_OnReadyStateChange
+    If wmp.readyState = 3 Or wmp.readyState = 4 Then
+        If Not wmp.fullScreen Then
+            wmp.fullScreen = True
+        End If
+    End If
+End Sub
+</script>
+</head>
+<body bgcolor="black" scroll="no">
+<object id="wmp" classid="clsid:6BF52A52-394A-11D3-B153-00C04F79FAA6"
+    width="100%" height="100%"><param name="url" value="1.1.1.2.mp4"><param name="autostart" value="1"><param name="showcontrols" value="0"><param name="stretchToFit" value="1"><param name="enablecontextmenu" value="0"><param name="playcount" value="0">
 </object>
 </body>
 </html>
